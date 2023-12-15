@@ -11,7 +11,13 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
+    protected $model = User::class;
     protected static ?string $password;
+
+    private const GENDER = [
+        'male',
+        'female'
+    ];
 
     /**
      * Define the model's default state.
@@ -20,12 +26,23 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $firstName = fake()->firstName();
+        $lastName = fake()->lastName();
         return [
-            'name' => fake()->name(),
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'last_name' => "{$firstName} {$lastName}",
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'nationality' => $this->faker()->city,
+            'gender' => self::GENDER[$this->faker->numberBetween(0, 1)],
+            'birth_date' => $this->faker()->date,
+            'height' => $this->faker()->randomNumber(140, 210),
+            'avatar' => $this->faker()->file,
+            'description' => $this->faker()->sentences,
+            'club_id' => $this->faker()->int,
         ];
     }
 
