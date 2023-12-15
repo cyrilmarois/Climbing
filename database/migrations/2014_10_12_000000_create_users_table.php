@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('full_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -28,9 +29,10 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->index('first_name');
-            $table->index('last_name');
+            $table->index('full_name');
             $table->index('gender');
+            $table->index('nationality');
+            $table->index('club_id');
             $table->fullText('description');
         });
     }

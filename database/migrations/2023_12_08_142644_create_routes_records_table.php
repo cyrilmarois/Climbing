@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('grade_id')->nullable()->constrained();
             $table->unsignedSmallInteger('tries')->nullable();
             $table->enum('type', ['lead climbing', 'top rope climbing'])->default('lead climbing');
-            $table->unsignedSmallInteger('evaluation')
+            $table->unsignedSmallInteger('rating')
                 ->nullable();
             $table->text('review')->nullable();
             $table->timestamps();

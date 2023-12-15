@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->enum('type', ['world cups', 'world championships']);
             $table->enum('discipline', ['lead climbing', 'bouldering']);
-            $table->date('date');
+            $table->timestamp('date')->useCurrent();
             $table->string('city');
             $table->timestamps();
 
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->index('type');
             $table->index('discipline');
             $table->index('city');
+            $table->index('date');
         });
     }
 
