@@ -18,9 +18,17 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
+        'nationality',
+        'gender',
+        'birth_date',
+        'height',
+        'avatar',
+        'description',
+        'club_id'
     ];
 
     /**
@@ -42,4 +50,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Get the club that owns the user.
+     */
+    public function club()
+    {
+        return $this->belongsTo(Club::class);
+    }
 }
