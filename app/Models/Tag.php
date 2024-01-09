@@ -15,6 +15,6 @@ class Tag extends Model
 
     public function routes()
     {
-        return $this->belongsToMany(Route::class, 'routes_tags'	);
+        return $this->belongsToMany(Route::class, 'route_tag');
     }
 }

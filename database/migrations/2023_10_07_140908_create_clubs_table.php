@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('city');
             $table->string('zipcode');
+            $table->date('creation_date');
             $table->timestamps();
 
             $table->index('name');
             $table->index('city');
             $table->index('zipcode');
+            $table->index('creation_date');
         });
     }
 

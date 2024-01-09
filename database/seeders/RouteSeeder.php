@@ -14,10 +14,13 @@ class RouteSeeder extends Seeder
     public function run(): void
     {
         Route::factory()
+            ->count(10)
             ->hasClub(1)
             ->hasUsers(2)
             ->hasTags(5)
-            ->count(10)
-            ->create();
+            ->create([
+            'grade_id' => 1,
+            'line_id' => 1,
+            ]);
     }
 }

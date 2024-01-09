@@ -11,19 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('routes_records', function (Blueprint $table) {
+        Schema::create('route_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('route_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('grade_id')->nullable()->constrained();
-            $table->unsignedSmallInteger('tries')->nullable();
-            $table->enum('type', ['lead climbing', 'top rope climbing'])->default('lead climbing');
-            $table->unsignedSmallInteger('rating')
-                ->nullable();
-            $table->text('review')->nullable();
             $table->timestamps();
-
-            $table->fullText('review');
         });
     }
 
@@ -32,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('routes_records');
+        Schema::dropIfExists('route_user');
     }
 };

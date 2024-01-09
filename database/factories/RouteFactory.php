@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Route;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,13 +20,13 @@ class RouteFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
-            'grade_id' => $this->faker->randomNumber(),
-            'club_id' => $this->faker->randomNumber(),
-            'line_id' => $this->faker->randomNumber(),
-            'color_id' => $this->faker->randomNumber(),
+            'name' => $this->faker->sentence,
+            'grade_id' => $this->faker->numberBetween(1, 54),
+            'club_id' => $this->faker->numberBetween(1, 10),
+            'line_id' => $this->faker->numberBetween(1, 50),
+            'color_id' => $this->faker->numberBetween(1, 11),
             'description' => $this->faker->sentence,
-            'opening_date' => $this->faker->dateTimeBetween('-2 months', 'today'),
+            'opening_date' => $this->faker->dateTimeBetween('-6 months', 'yesterday'),
             'closing_date' => $this->faker->dateTimeInInterval('today', '+2 months'),
         ];
     }

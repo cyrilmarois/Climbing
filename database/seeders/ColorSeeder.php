@@ -5,27 +5,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Color;
+use app\Enums\Color as ColorEnum;
 class ColorSeeder extends Seeder
 {
-    private const COLORS = [
-        'White',
-        'Yellow',
-        'Orange',
-        'Red',
-        'Blue',
-        'Green',
-        'Black',
-        'Purple',
-        'Brown',
-        'Pink',
-        'Grey',
-    ];
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        collect(self::COLORS)->map(function (string $color) {
+        $colors = array_column(ColorEnum::cases(), 'values');
+        collect($colors)->map(function (string $color) {
             Color::findOrCreate(['name' => $color]);
         });
     }

@@ -29,7 +29,7 @@ class UserProfileFactory extends Factory
             'first_name' => $firstName,
             'last_name' => $lastName,
             'full_name' => "{$firstName} {$lastName}",
-            'nationality_country_id' => $this->faker->randomNumber(),
+            'nationality_country_id' => null,   //$this->faker->randomNumber(),
             'gender' => $genders[$this->faker->numberBetween(0, 1)],
             'birth_date' => $this->faker->date,
             'height' => $this->faker->numberBetween(140, 210),

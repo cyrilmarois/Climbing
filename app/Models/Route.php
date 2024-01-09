@@ -21,16 +21,16 @@ class Route extends Model
     ];
     public function users()
     {
-        return $this->belongsToMany(User::class, 'routes_users');
+        return $this->belongsToMany(User::class, 'route_user');
     }
 
     public function usersRecords()
     {
-        return $this->belongsToMany(User::class, 'routes_records');
+        return $this->belongsToMany(User::class, 'route_record');
     }
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'routes_tags');
+        return $this->belongsToMany(Tag::class, 'route_tag');
     }
 }

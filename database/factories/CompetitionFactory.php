@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Enums\CompetitionType;
 use App\Enums\ClimbingType;
+use App\Models\Competition;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
