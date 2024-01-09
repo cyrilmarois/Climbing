@@ -14,9 +14,10 @@ class Club extends Model
         'name',
         'city',
         'zipcode',
+        'creation_date'
     ];
 
     public function user(): HasOne {
-        return $this->hasOne(User::class);
+        return $this->HasOne(UserProfile::class);
     }
 }

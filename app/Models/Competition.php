@@ -17,7 +17,7 @@ class Competition extends Model
         'city',
     ];
 
-    private $casts = [
+    protected $casts = [
         'date' => 'date:Y-m-d',
     ];
 }

@@ -17,13 +17,15 @@ return new class extends Migration
             $table->foreignId('grade_id')->constrained();
             $table->foreignId('club_id')->constrained();
             $table->text('description')->nullable();
-            $table->unsignedSmallInteger('line')->nullable();
+            $table->unsignedSmallInteger('line_id')->nullable();
             $table->unsignedSmallInteger('color_id')->nullable();
             $table->timestamp('opening_date')->useCurrent();
             $table->timestamp('closing_date')->nullable();
             $table->timestamps();
 
             $table->index('name');
+            $table->index('grade_id');
+            $table->index('club_id');
             $table->index('opening_date');
             $table->index('closing_date');
             $table->fullText('description');

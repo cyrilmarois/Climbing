@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Grade;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -71,10 +72,8 @@ class GradeSeeder extends Seeder
     public function run(): void
     {
 
-        $grades = collect(self::GRADES) -> map(function (string $grade) {
-            Grade::factory()->createOne([
-                'name' => $grade
-            ]);
+        collect(self::GRADES)->map(function (string $grade) {
+            Grade::findOrCreate(['name' => $grade]);
         });
     }
 }

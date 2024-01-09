@@ -22,6 +22,7 @@ class ClubFactory extends Factory
             'name' => $this->faker->name,
             'city' => $this->faker->city,
             'zipcode' => $this->faker->postcode,
+            'creation_date' => $this->faker->date()
         ];
     }
 }

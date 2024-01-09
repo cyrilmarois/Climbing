@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('routes_setters', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('route_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+        Schema::create('countries', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('country')->unique();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('routes_setters');
+        Schema::dropIfExists('countries');
     }
 };

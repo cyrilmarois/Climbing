@@ -20,11 +20,13 @@ class RouteFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'grade_id' => $this->faker->name,
-            'club_id' => $this->faker->name,
+            'grade_id' => $this->faker->randomNumber(),
+            'club_id' => $this->faker->randomNumber(),
+            'line_id' => $this->faker->randomNumber(),
+            'color_id' => $this->faker->randomNumber(),
             'description' => $this->faker->sentence,
-            'opening_date' => $this->faker->name,
-            'closing_date' => $this->faker->name,
+            'opening_date' => $this->faker->dateTimeBetween('-2 months', 'today'),
+            'closing_date' => $this->faker->dateTimeInInterval('today', '+2 months'),
         ];
     }
 }

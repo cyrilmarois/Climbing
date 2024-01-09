@@ -24,13 +24,13 @@ class RouteRecordFactory extends Factory
     public function definition(): array
     {
         return [
-            'route_id' => $this->faker->randomDigit,
-            'user_id' => $this->faker->randomDigit,
-            'grade_id' => $this->faker->randomDigit,
-            'tries' => $this->faker->randomDigit,
+            'route_id' => $this->faker->randomDigit(),
+            'user_id' => $this->faker->randomDigit(),
+            'grade_id' => $this->faker->randomDigit(),
+            'tries' => $this->faker->randomDigit(),
             'type' => self::type[$this->faker->numberBetween(0,1)],
             'rating' => $this->faker->numberBetween(0,5),
-            'review' => $this->faker->sentence,
+            'review' => $this->faker->sentence(),
         ];
     }
 }

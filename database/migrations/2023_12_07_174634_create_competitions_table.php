@@ -23,8 +23,8 @@ return new class extends Migration
             $table->index('title');
             $table->index('type');
             $table->index('discipline');
-            $table->index('city');
             $table->index('date');
+            $table->index('city');
         });
     }
 

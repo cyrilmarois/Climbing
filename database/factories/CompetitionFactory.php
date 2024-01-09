@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\CompetitionType;
+use App\Enums\ClimbingType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,16 +12,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CompetitionFactory extends Factory
 {
     protected $model = Competition::class;
-
-    private const TYPE = [
-        'world cups',
-        'world championships'
-    ];
-
-    private const DISCIPLINE = [
-        'lead climbing',
-        'bouldering'
-    ];
 
     /**
      * Define the model's default state.
@@ -30,10 +22,13 @@ class CompetitionFactory extends Factory
     {
         $date = $this->faker->date;
         $city = $this->faker->city;
+        $types = CompetitionType::cases();
+        $disciplines = ClimbingType::cases();
+
         return [
             'title' => "{$city} - {$date}",
-            'type' => self::TYPE[$this->faker->numberBetween(0, 1)],
-            'discipline' => self::DISCIPLINE[$this->faker->numberBetween(0, 1)],
+            'type' => $types[$this->faker->numberBetween(0, 1)],
+            'discipline' => $disciplines[$this->faker->numberBetween(0, 1)],
             'date' => $date,
             'city' => $city,
         ];

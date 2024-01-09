@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,17 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
         'email',
         'password',
-        'nationality',
-        'gender',
-        'birth_date',
-        'height',
-        'avatar',
-        'description',
-        'club_id'
     ];
 
     /**
@@ -51,11 +45,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
-    /**
-     * Get the club that owns the user.
-     */
-    public function club()
+    public function profile(): HasOne
     {
-        return $this->belongsTo(Club::class);
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function routes(): BelongsToMany
+    {
+        return $this->belongsToMany(Route::class, 'routes_users');
+    }
+
+    public function routeRecords(): BelongsToMany
+    {
+        return $this->belongsToMany(Route::class, 'routes_records');
+    }
+
+    public function competitions(): BelongsToMany
+    {
+        return $this->belongsToMany(Competition::class, 'competitions_users');
     }
 }
