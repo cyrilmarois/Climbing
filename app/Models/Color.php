@@ -12,4 +12,9 @@ class Color extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function routes(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Route::class);
+    }
 }

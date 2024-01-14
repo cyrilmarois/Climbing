@@ -33,4 +33,19 @@ class Route extends Model
     {
         return $this->belongsToMany(Tag::class, 'route_tag');
     }
+
+    public function grade(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Grade::class);
+    }
+
+    public function club(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Club::class);
+    }
+
+    public function color(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Color::class);
+    }
 }

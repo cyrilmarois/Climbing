@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Gender;
 use App\Models\Club;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -20,6 +22,10 @@ class UserSeeder extends Seeder
             ->has(
                 UserProfile::factory()
                     ->count(1)
+                    ->sequence(
+                        ['gender' => Gender::MALE],
+                        ['gender' => Gender::FEMALE]
+                    )
                     ->forClub()
                     ->state(function (array $attributes, User $user) {
                         return [

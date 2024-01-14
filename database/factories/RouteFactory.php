@@ -20,11 +20,19 @@ class RouteFactory extends Factory
     public function definition(): array
     {
         return [
+            // 'name' => $this->faker->sentence,
+            // 'grade_id' => 1,
+            // 'club_id' => 1,
+            // 'line_id' => 1,
+            // 'color_id' => 1,
+            // 'description' => 'test icule',
+            // 'opening_date' => now(),
+            // 'closing_date' => now()->addDays(7),
             'name' => $this->faker->sentence,
-            'grade_id' => $this->faker->numberBetween(1, 54),
-            'club_id' => $this->faker->numberBetween(1, 10),
-            'line_id' => $this->faker->numberBetween(1, 50),
-            'color_id' => $this->faker->numberBetween(1, 11),
+            'grade_id' => $this->faker->randomDigit(),
+            'club_id' => $this->faker->randomDigit(),
+            'line_id' => $this->faker->randomDigit(),
+            'color_id' => $this->faker->randomDigit(),
             'description' => $this->faker->sentence,
             'opening_date' => $this->faker->dateTimeBetween('-6 months', 'yesterday'),
             'closing_date' => $this->faker->dateTimeInInterval('today', '+2 months'),

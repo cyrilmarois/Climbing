@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             ColorSeeder::class,
             GradeSeeder::class,
             UserSeeder::class,
-            // RouteSeeder::class,
+            RouteSeeder::class,
             // RouteRecordSeeder::class,
         ]);
 
