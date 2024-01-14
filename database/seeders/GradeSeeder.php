@@ -16,9 +16,10 @@ class GradeSeeder extends Seeder
      */
     public function run(): void
     {
-        $grades = array_column(GradeEnum::cases(), 'values');
+        $grades = array_column(GradeEnum::cases(), 'value');
         collect($grades)->map(function (string $grade) {
-            Grade::findOrCreate(['name' => $grade]);
+            $data = ['name' => $grade];
+            Grade::firstOrCreate($data, $data);
         });
     }
 }

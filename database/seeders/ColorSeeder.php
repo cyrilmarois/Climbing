@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Color;
-use app\Enums\Color as ColorEnum;
+use App\Enums\Color as ColorEnum;
 class ColorSeeder extends Seeder
 {
     /**
@@ -13,9 +13,10 @@ class ColorSeeder extends Seeder
      */
     public function run(): void
     {
-        $colors = array_column(ColorEnum::cases(), 'values');
+        $colors = array_column(ColorEnum::cases(), 'value');
         collect($colors)->map(function (string $color) {
-            Color::findOrCreate(['name' => $color]);
+            $data = ['name' => $color];
+            Color::firstOrCreate($data, $data);
         });
     }
 }
