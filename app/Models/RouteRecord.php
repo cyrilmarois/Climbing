@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class RouteRecord extends Model
 {
     use HasFactory;
+
+    protected $table = 'route_record';
 }

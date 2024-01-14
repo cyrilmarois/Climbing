@@ -23,13 +23,11 @@ class CompetitionFactory extends Factory
     {
         $date = $this->faker->date;
         $city = $this->faker->city;
-        $types = CompetitionType::cases();
-        $disciplines = ClimbingType::cases();
 
         return [
             'title' => "{$city} - {$date}",
-            'type' => $types[$this->faker->numberBetween(0, 1)],
-            'discipline' => $disciplines[$this->faker->numberBetween(0, 1)],
+            'type' => CompetitionType::cases()[$this->faker->numberBetween(0, 1)]->value,
+            'discipline' => ClimbingType::cases()[$this->faker->numberBetween(0, 1)]->value,
             'date' => $date,
             'city' => $city,
         ];

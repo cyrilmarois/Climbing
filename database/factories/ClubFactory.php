@@ -19,9 +19,10 @@ class ClubFactory extends Factory
      */
     public function definition(): array
     {
+        $city = $this->faker->city;
         return [
-            'name' => $this->faker->name,
-            'city' => $this->faker->city,
+            'name' => "Climbing Club {$city}",
+            'city' => $city,
             'zipcode' => $this->faker->postcode,
             'creation_date' => $this->faker->date()
         ];

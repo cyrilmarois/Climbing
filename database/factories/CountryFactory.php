@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CountryFactory extends Factory
 {
-    protected $model = Color::class;
+    protected $model = Country::class;
 
     /**
      * Define the model's default state.
@@ -19,7 +20,7 @@ class CountryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->country(),
+            'country' => $this->faker->country(),
         ];
     }
 }

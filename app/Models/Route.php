@@ -24,7 +24,7 @@ class Route extends Model
         return $this->belongsToMany(User::class, 'route_user');
     }
 
-    public function usersRecords()
+    public function routeRecords()
     {
         return $this->belongsToMany(User::class, 'route_record');
     }

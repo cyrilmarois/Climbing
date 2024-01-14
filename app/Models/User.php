@@ -57,11 +57,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function routeRecords(): BelongsToMany
     {
-        return $this->belongsToMany(Route::class, 'routes_records');
+        return $this->belongsToMany(Route::class, 'route_record');
     }
 
     public function competitions(): BelongsToMany
     {
-        return $this->belongsToMany(Competition::class, 'competitions_users');
+        return $this->belongsToMany(Competition::class, 'competition_user');
     }
 }

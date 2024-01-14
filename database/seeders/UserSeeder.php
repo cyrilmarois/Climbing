@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Enums\Gender;
 use App\Models\Club;
+use App\Models\Country;
 use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,9 +27,10 @@ class UserSeeder extends Seeder
                         ['gender' => Gender::MALE],
                         ['gender' => Gender::FEMALE]
                     )
-                    ->forClub()
                     ->state(function (array $attributes, User $user) {
                         return [
+                            'nationality_country_id' => Country::factory()->create()->id,
+                            'club_id' => Club::factory()->create()->id,
                             'user_id' => $user->id,
                         ];
                     }), 'profile')
